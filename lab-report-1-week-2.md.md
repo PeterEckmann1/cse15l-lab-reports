@@ -45,7 +45,7 @@ class WhereAmI {
 
 ## Setting an SSH Key
 
-* To log in to the remote server without having to use a password each time, you can run `ssh-keygen` on your local computer to generate a key you can use to log in remotely. For the most conveninience, save it in `/Users/<your user name>/.ssh/id_rsa` with no passphrase, and follow the [`ssh-add`](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation) if using Windows
+* To log in to the remote server without having to use a password each time, you can run `ssh-keygen` on your local computer to generate a key you can use to log in remotely. For the most conveninience, save it in `/Users/<your user name>/.ssh/id_rsa` with no passphrase, and use [`ssh-add`](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation) if using Windows
 * As before, `ssh` onto the server and run `mkdir .ssh` to create a folder to put your `ssh` keys, then log out (using `logout`) and `scp` the key file onto the server: 
 `scp /Users/<your user name>/.ssh/id_rsa.pub <your account name>@ieng6.ucsd.edu:~/.ssh/authorized_keys`
 * Now try to `ssh` onto the server, and hopefully it won't prompt for your password!
@@ -54,7 +54,7 @@ class WhereAmI {
 
 ## Optimizing Remote Running
 
-* There are a lot of ways to make the process of running a `.java` file on the server easier, but I chose to make a bash file which allows us to easy run a set of commands
+* There are a lot of ways to make the process of running a `.java` file on the server easier, but I chose to make a bash file which allows us to easily run a set of commands
 * I created a file called `cse` with the following contents:
 ```
 scp $1 cs15lwi22alx@ieng6.ucsd.edu:~/ >/dev/null
@@ -62,6 +62,6 @@ ssh cs15lwi22alx@ieng6.ucsd.edu "javac $1 && java ${1/.java/}"
 ```
 * The file specifies commands to copy a given file (supplied as a command line argument, which is read using `$1`) to the remote server (using `>/dev/null` to hide the output), and then using `ssh` to log on to the server and execute the commands
 * To be able to run the command anywhere, create what's called a `symlink` using, in my case, `sudo ln -s cse /usr/local/bin/cse`, and then make the file executable with `chmod +x cse`
-* Run any `.java` file on the remote by just calling `cse <file>.java`! Here's an example:
+* Run any `.java` file on the remote server by just calling `cse <file>.java`! Here's an example:
 
 ![](step6.png)
