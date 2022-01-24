@@ -65,3 +65,5 @@ ssh cs15lwi22alx@ieng6.ucsd.edu "javac $1 && java ${1/.java/}"
 * Run any `.java` file on the remote server by just calling `cse <file>.java`! Here's an example:
 
 ![](step6.png)
+
+* Calling `cse <file.java>` multiple times in a row only takes 2 keystrokes each time: pressing the up arrow and enter. This is a lot faster than logging into the server and running it there, which can take upwards of 5 keystrokes
