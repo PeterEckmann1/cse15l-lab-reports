@@ -9,6 +9,7 @@ Chosen task: **Copy whole directories with scp -r**
 ![](3step2.png)
 
 3. **Combining into one command.** To make running remote tests easier, we can combine the transfer of remote files and the running of tests into one command. First I ran `rm -rf markdown-parse/` in the remote directory to remove `markdown-parse`, so that we can make sure our transfer works again. Combining the commands from step 1 and 2 into one, we get: `scp -r markdown-parse cs15lwi22alx@ieng6.ucsd.edu:~/; ssh cs15lwi22alx@ieng6.ucsd.edu "cd markdown-parse/; make test"`. Running these command on my local machine, I get: 
+
 ```
 peter@Peters-MacBook-Pro Downloads % scp -r markdown-parse cs15lwi22alx@ieng6.ucsd.edu:~/; ssh cs15lwi22alx@ieng6.ucsd.edu "cd markdown-parse; javac MarkdownParse.java"
 test-file5.md                                                                                              100%   39     4.8KB/s   00:00    
