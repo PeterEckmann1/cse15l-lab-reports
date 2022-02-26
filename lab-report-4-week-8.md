@@ -105,7 +105,7 @@ java.lang.AssertionError: expected:<[https://www.twitter.com, https://ucsd-cse15
 
 ## Questions
 
-1. Yes, I think there is a short code change that will allow my code to work with backticks. I think a boolean can be used that simply tracks whether or not the main while loop is going over a code block or not. This can be implemented by setting a boolean to true when it sees a  backtick, and reversing setting it to false when it sees another backtick. As long as the brackets that declare a link are not in the code segments, they are declared links.
+1. Yes, I think there is a short code change that will allow my code to work with backticks. I think a boolean can be used that simply tracks whether or not the main while loop is going over a code block or not. This can be implemented by setting a boolean to true when it sees a  backtick, and setting it to false when it sees another backtick. As long as the brackets that declare a link are not in the code segments, they are declared links.
 
 2. No, I do not think there is a small code change that will allow us to deal with nested paranthesis, brackets, and escaped brackets. This would require a more complicated parser that, whenever it sees an open bracket, looks ahead to find the one that closes it before it can be declared an open bracket. This could be implemented with a tree structure, including one that can deal with escaped brackets correctly, but this is a more in-depth change.
 
