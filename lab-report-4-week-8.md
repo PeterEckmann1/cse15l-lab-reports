@@ -9,13 +9,13 @@
 Test code:
 ```
 @Test
-    public void labTestOne() throws IOException {
-        Path file = Path.of("lab-test-1.md");
-        String contents = Files.readString(file);
+public void labTestOne() throws IOException {
+    Path file = Path.of("lab-test-1.md");
+    String contents = Files.readString(file);
 
-        List<String> expected = List.of("`google.com", "google.com", "ucsd.edu");
-        assertEquals(expected, MarkdownParse.getLinks(contents));
-    }
+    List<String> expected = List.of("`google.com", "google.com", "ucsd.edu");
+    assertEquals(expected, MarkdownParse.getLinks(contents));
+}
 ```
 
 For my implementation, the test fails:
@@ -45,13 +45,13 @@ java.lang.AssertionError: expected:<[`google.com, google.com, ucsd.edu]> but was
 Test code:
 ```
 @Test
-    public void labTestTwo() throws IOException {
-        Path file = Path.of("lab-test-2.md");
-        String contents = Files.readString(file);
+public void labTestTwo() throws IOException {
+    Path file = Path.of("lab-test-2.md");
+    String contents = Files.readString(file);
 
-        List<String> expected = List.of("a.com", "a.com(())", "example.com");
-        assertEquals(expected, MarkdownParse.getLinks(contents));
-    }
+    List<String> expected = List.of("a.com", "a.com(())", "example.com");
+    assertEquals(expected, MarkdownParse.getLinks(contents));
+}
 ```
 
 For my implementation, the test fails:
@@ -81,13 +81,13 @@ java.lang.AssertionError: expected:<[a.com, a.com(()), example.com]> but was:<[a
 Test code:
 ```
 @Test
-    public void labTestThree() throws IOException {
-        Path file = Path.of("lab-test-3.md");
-        String contents = Files.readString(file);
+public void labTestThree() throws IOException {
+    Path file = Path.of("lab-test-3.md");
+    String contents = Files.readString(file);
 
-        List<String> expected = List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/", "https://cse.ucsd.edu/");
-        assertEquals(expected, MarkdownParse.getLinks(contents));
-    }
+    List<String> expected = List.of("https://www.twitter.com", "https://ucsd-cse15l-w22.github.io/", "https://cse.ucsd.edu/");
+    assertEquals(expected, MarkdownParse.getLinks(contents));
+}
 ```
 
 For my implementation, the test passes.
