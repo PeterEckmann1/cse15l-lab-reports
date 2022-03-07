@@ -90,7 +90,14 @@ public void labTestThree() throws IOException {
 }
 ```
 
-For my implementation, the test passes.
+For my implementation, the test passes:
+```
+JUnit version 4.13.2
+...............
+Time: 0.036
+
+OK (15 tests)
+```
 
 For the reviewed implemenation, the test fails:
 ```
