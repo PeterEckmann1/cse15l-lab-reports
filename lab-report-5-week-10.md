@@ -27,8 +27,8 @@ Neither implementations are correct, but the given implementation of `MarkdownPa
        int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
  -->   int openParen = markdown.indexOf("(", nextCloseBracket);
 
-    // The close paren we need may not be the next one in the file
-    int closeParen = findCloseParen(markdown, openParen);
+        // The close paren we need may not be the next one in the file
+        int closeParen = findCloseParen(markdown, openParen);
 ```
 to not just go for the next closing bracket, but to serach the entire file for a reference, i.e. something of the form `[text that was in brackets]:`. This would make the markdown parser at least aware of how references work, but whether that works for all edge cases I'm not sure.
 
