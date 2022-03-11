@@ -30,7 +30,7 @@ Neither implementations are correct, but the given implementation of `MarkdownPa
         // The close paren we need may not be the next one in the file
         int closeParen = findCloseParen(markdown, openParen);
 ```
-to not just go for the next closing bracket, but to serach the entire file for a reference, i.e. something of the form `[text that was in brackets]:`. This would make the markdown parser at least aware of how references work, but whether that works for all edge cases I'm not sure.
+This means we will not continue parsing after we find the next `(`, but to search the entire file for a reference, i.e. something of the form `[text that was in brackets]:`, before continuing parsing at the next `(`. This would make the markdown parser at least aware of how references work, but whether that works for all edge cases I'm not sure.
 
 For `test-files/577.md`, we get the following diff (top is the provided implementation, bottom is ours):
 
