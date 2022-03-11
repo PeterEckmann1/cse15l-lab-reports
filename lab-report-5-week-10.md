@@ -20,7 +20,7 @@ The test file looks like:
 [Foo*bar\]]
 ```
 
-Which has the expected output `[title (with parents)]` (according to the GitHub parsing). This is expected because the colon `:` denotes a reference, that is called by the second `[Foo*bar\]]`. The link for this reference is then `title (with parents)`, as given in the first line. 
+Which has the expected output `[title (with parents)]` (according to the GitHub parsing). This is expected because the colon `:` denotes a reference, that is called by the second `[Foo*bar\]]`. The link for this reference is then `title (with parents)`, as given in the first line. This is the expected output.
 
 Neither implementations are correct, but the given implementation of `MarkdownParse` is not able to handle this because it does not look for link references (this is the bug). It's not entirely clear where exactly in the code this bug is, because it's a feature that was not even implemented. However, if I were to implement this I would probably add something here (where the arrow is) in `MarkdownParse.java`, which is line 65: 
 ```
